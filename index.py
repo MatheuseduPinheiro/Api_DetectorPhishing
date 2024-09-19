@@ -1,4 +1,10 @@
 import pandas as pd
+from sklearn.calibration import LabelEncoder
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score 
+from sklearn.feature_extraction.text import TfidfVectorizer
+
 
 print("="*10,"Predição dos Phishing`s","="*10)
 print("="*45)
@@ -66,5 +72,37 @@ df_url = df[['URL']]
 print("="*12,"Definindo URL como minha única característica","="*12)
 print(df_url)
 
+print("="*12,"Separar Característica dos Rotulos","="*12)
 
-df.info()
+# Selecionar colunas de características e rótulo
+# Característica (X): Apenas a URL
+x = df['URL'].values
+
+# Rótulos (y): Diversos rótulos indicativos
+y = df[['label']].values
+
+# Verificar os primeiros valores
+print(x[:5])
+
+print(y[:5])
+
+# Transformar URLs em características numéricas
+vectorizer = TfidfVectorizer()
+x_transformed = vectorizer.fit_transform(x)
+print("="*12,"Transformar URLs em características numéricas","="*12)
+# Dividir os dados em treino e teste
+x_train, x_test, y_train, y_test = train_test_split(x_transformed, y, test_size=0.2, random_state=42)
+
+# Criar o classificador KNN
+knn = KNeighborsClassifier(n_neighbors=5)
+
+# Treinar o classificador
+knn.fit(x_train, y_train)
+
+# Fazer previsões
+x_pred = knn.predict(x_test)
+
+# Avaliar o desempenho
+accuracy = accuracy_score(y_test, x_pred)
+print(f'Acurácia: {accuracy:.2f}')
+
