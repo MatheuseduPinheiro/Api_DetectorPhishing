@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/robo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+    <title>Welcome to IrisDataWeb</title>
+    <style>
+        /* Adiciona um estilo CSS para o vídeo de fundo */
+        .video-background {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Vídeo de fundo -->
+    <video class="video-background" autoplay muted loop>
+        <source src="{{ url_for('static', filename='images/plano-fundo.mp4') }}" type="video/mp4">
+        Seu navegador não suporta o formato de vídeo.
+    </video>
+
+    <div class="container">
+        <header>
+            <h2 class="title-page">Welcome to DetectorPhishing</h2>
+        </header>
+        <div id="logo-homer">
+            <img id="logo" src="{{ url_for('static', filename='images/robo.png') }}" alt="Logo do DetectorPhishing">
+        </div>
+        <div class="text">
+            <p>Este projeto,</p>
+        </div>
+        <div class="gatways">
+            <div class="main">
+                <a href="{{ url_for('app.detector') }}" class="button">Enter</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
