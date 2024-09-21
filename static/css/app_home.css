@@ -1,0 +1,150 @@
+/* Corpo da página */
+body {
+    font-family: 'Roboto Mono', monospace;
+    background-color: #000; /* Fundo preto */
+    color: #00ff00; /* Cor do texto verde */
+    margin: 0;
+}
+
+/* Título da página */
+.title-page {
+    color: #00ff00; /* Cor verde estilo Matrix */
+    font-size: 24px; /* Aumenta o tamanho da fonte */
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+    text-shadow: 0 0 10px #00ff00; /* Sombra para efeito brilhante */
+}
+
+/* Plano de fundo */
+.plano-de-fundo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Fica atrás do conteúdo */
+    object-fit: cover; /* Cobre todo o plano de fundo */
+    filter: brightness(0.3) contrast(1.2); /* Ajusta o brilho e contraste */
+}
+
+/* Container principal */
+.container {
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo preto translúcido */
+    padding: 30px; /* Espaçamento interno maior */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5); /* Sombra esverdeada */
+    width: 350px; /* Largura ajustada */
+    text-align: center;
+    margin: auto; 
+    margin-top: 100px; /* Ajusta a posição */
+}
+
+/* Logo */
+#logo-homer {
+    margin-bottom: 20px;
+    text-align: center; 
+}
+
+#logo {
+    max-width: 50%; /* Tamanho do logo */
+    height: auto; 
+    animation: pulse 2s infinite; /* Animação pulsante */
+}
+
+/* Animação do logo */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Texto principal */
+.text {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo preto translúcido */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3); /* Sombra verde */
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: center; 
+    color: #00ff00; /* Cor do texto verde */
+    font-size: 16px; /* Tamanho da fonte */
+    line-height: 1.5; /* Espaçamento entre linhas */
+    text-shadow: 0 0 5px #00ff00; /* Sombra leve para texto */
+}
+
+/* Estilo dos botões */
+.gatways {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaço entre botões */
+}
+
+/* Estilização do botão */
+.gatways a {
+    display: inline-block;
+    padding: 15px 30px; /* Aumenta o tamanho do botão */
+    color: #f0f0f0; /* Cor do texto */
+    text-decoration: none; /* Remove o sublinhado */
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo preto com opacidade */
+    border: 2px solid #00ff00; /* Borda verde estilo Matrix */
+    border-radius: 10px; /* Cantos arredondados */
+    font-family: 'Courier New', Courier, monospace; /* Fonte estilo terminal */
+    font-size: 18px; /* Tamanho do texto */
+    transition: all 0.3s ease; /* Transição suave para as mudanças */
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5), 0 0 30px rgba(0, 255, 0, 0.5); /* Sombra esverdeada */
+    position: relative;
+    overflow: hidden; /* Para evitar que o efeito de luz transborde */
+}
+
+/* Efeito no hover */
+.gatways a:hover {
+    background-color: #00ff00; /* Fundo verde ao passar o cursor */
+    color: #000; /* Texto preto ao passar o cursor */
+    box-shadow: 0 0 30px rgba(0, 255, 0, 1), 0 0 60px rgba(0, 255, 0, 1); /* Aumenta a sombra */
+}
+
+/* Efeito de luz ao passar o cursor */
+.gatways a::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: all 0.75s ease;
+    opacity: 0;
+}
+
+.gatways a:hover::before {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+}
+
+/* Garante que o texto fique acima do efeito de luz */
+.gatways a span {
+    position: relative;
+    z-index: 2;
+}
+
+/* Adiciona um estilo CSS para o vídeo de fundo */
+.video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+.container {
+    position: relative;
+    z-index: 1;
+}

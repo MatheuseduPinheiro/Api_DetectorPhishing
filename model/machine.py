@@ -127,8 +127,8 @@ def predict_phishing(url):
 
 
 # Definir o caminho do diretório
-path = r''
+#path = r'C:\Users\Matheus\Documents\Estudos\Projetos com Python\DetectorPhishing\dump'
 
 # Salvar o modelo e o vectorizer no diretório específico
-joblib.dump(knn, f'{path}\\phishing_model.pkl')
-joblib.dump(vectorizer, f'{path}\\vectorizer.pkl')
+#joblib.dump(knn, f'{path}\\phishing_model.pkl')
+#oblib.dump(vectorizer, f'{path}\\vectorizer.pkl')
