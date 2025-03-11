@@ -1,6 +1,6 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeClassifier  # Importando a árvore de decisão
+from sklearn.ensemble import RandomForestClassifier  # Alterado para RandomForest
 from sklearn.metrics import accuracy_score 
 from sklearn.feature_extraction.text import TfidfVectorizer
 import joblib
@@ -79,18 +79,17 @@ print("="*12, "Transformar URLs em características numéricas", "="*12)
 vectorizer = TfidfVectorizer()
 x_transformed = vectorizer.fit_transform(x)
 
-
 # Dividir os dados em treino e teste
 x_train, x_test, y_train, y_test = train_test_split(x_transformed, y, test_size=0.2, random_state=42)
 
-# Criar o classificador de Árvore de Decisão
-tree_classifier = DecisionTreeClassifier(random_state=42)
+# Criar o classificador de Random Forest
+forest_classifier = RandomForestClassifier(n_estimators=100, random_state=42)  # Alterado para RandomForest
 
 # Treinar o classificador
-tree_classifier.fit(x_train, y_train)
+forest_classifier.fit(x_train, y_train)
 
 # Fazer previsões
-y_pred = tree_classifier.predict(x_test)
+y_pred = forest_classifier.predict(x_test)
 
 # Avaliar o desempenho
 accuracy = accuracy_score(y_test, y_pred)
@@ -120,5 +119,5 @@ def predict_phishing(url):
 path = r'C:\Users\Matheus\Documents\Estudos\Projetos com Python\DetectorPhishing\dump'
 
 # Salvar o modelo e o vectorizer no diretório específico
-joblib.dump(tree_classifier, f'{path}\\phishing_model.pkl')
+joblib.dump(forest_classifier, f'{path}\\phishing_model.pkl')
 joblib.dump(vectorizer, f'{path}\\vectorizer.pkl')
