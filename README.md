@@ -18,14 +18,12 @@ O processo de detecção de URLs de phishing foi aprimorado ao transformar as UR
 - As URLs passam pelo processo de vetorização utilizando **TF-IDF** para gerar representações numéricas.
 - **Fórmula do TF-IDF** destacada:
 
-\[
-w_{x,y} = tf_{x,y} \times \log \left( \frac{N}{df_x} \right)
-\]
+$ w_{x,y} = tf_{x,y} \times \log \left( \frac{N}{df_x} \right) $
 
 Onde:
-- \( tf_{x,y} \): Frequência do termo \( x \) no documento \( y \).
-- \( df_x \): Número de documentos contendo o termo \( x \).
-- \( N \): Número total de documentos.
+- $ tf_{x,y} $: Frequência do termo $ x $ no documento $ y $.
+- $ df_x $: Número de documentos contendo o termo $ x $.
+- $ N $: Número total de documentos.
 
 ---
 
